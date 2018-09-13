@@ -1,7 +1,7 @@
 # Audio Pipes
 Chrome extension to redirect WebAudio between webpages.
 
-Published as a Chrome extension here: https://chrome.google.com/webstore/detail/audio-pipes/ebmfdpppokkplmndpamkhbmochcdlefp
+Published as a [Chrome extension](https://chrome.google.com/webstore/detail/audio-pipes/ebmfdpppokkplmndpamkhbmochcdlefp)
 
 Demo video: https://vimeo.com/267083951 
 
