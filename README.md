@@ -12,7 +12,7 @@ There are many applications that utilize web audio to produce sound and music, f
 
 We were inspired by the [Web Audio inspector extension for Chrome](https://github.com/google/audion), which generates a visual representation of the audio nodes on a webpage. We developed an extension that makes it possible to use any webpage that generates audio and connect it to any webpage that consumes audio from the microphone. There are no changes needed to the Javascript code on the webpage, i.e. it works on all webpages.
 
-## TECHNICAL DESCRIPTION
+## Technical Description
 ### Extension to bypass security sandbox
 An important security consideration when employing Web Audio is that for obvious reasons all usage of the microphone requires explicit approval of the user. Cross-site scripting attacks are thus especially important to protect against on pages that request microphone input. However for our use case we need to be able to tap into the microphone input, and other aspects of Web Audio.
 
