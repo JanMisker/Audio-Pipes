@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "Audio Pipes",
   "author": "Jan Misker",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "background": {
     "scripts": ["js/background.js"]
   },

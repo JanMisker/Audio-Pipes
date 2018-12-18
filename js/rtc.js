@@ -468,6 +468,7 @@ var AudioPipes = window.AudioPipes || {};
 		AudioPipes.WebAudio.recordButton.style.borderStyle = 'solid';
 		AudioPipes.WebAudio.recordButton.style.cursor = 'pointer';
 		AudioPipes.WebAudio.recordButton.style.transition='all .1s linear';
+		AudioPipes.WebAudio.recordButton.style.zIndex = 1000000000;
 		AudioPipes.WebAudio.recordButton.onclick = function(evt) {
 			// stop click propagation ?
 			try {
