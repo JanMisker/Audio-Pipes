@@ -1,0 +1,17 @@
+{
+  "name": "audio-pipes",
+  "version": "0.6.0",
+  "description": "Chrome extension to redirect WebAudio between webpages.",
+  "scripts": {
+    "dist": "zip Archive.zip popup.html manifest.json _locales images js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanMisker/Audio-Pipes.git"
+  },
+  "author": "Jan Misker",
+  "bugs": {
+    "url": "https://github.com/JanMisker/Audio-Pipes/issues"
+  },
+  "homepage": "https://github.com/JanMisker/Audio-Pipes#readme"
+}
