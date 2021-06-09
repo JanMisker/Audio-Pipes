@@ -19,6 +19,20 @@
     });
     backgroundPageConnection.onMessage.addListener(handleMessageFromBackground);
 
+    $("#refresh").click(function (evt) {
+      backgroundPageConnection.postMessage({
+        type: "refresh_nodes",
+      });
+    });
+
+    // localize strings
+    document.getElementById("update").innerText =
+      chrome.i18n.getMessage("button_apply");
+    document.getElementById("title_sources").innerText =
+      chrome.i18n.getMessage("title_sources");
+    document.getElementById("title_destinations").innerText =
+      chrome.i18n.getMessage("title_destinations");
+
     $("#update").click(function (evt) {
       // iterate sources and destinations
       let mixer = {
@@ -30,9 +44,12 @@
           return { id: item.value };
         })
       );
+      if (!mixer.sources.length) {
+        alert(chrome.i18n.getMessage("alert_no_source"));
+      }
       let dest = $("#destinations input:checked");
       if (!dest.length) {
-        alert("Choose a destination");
+        alert(chrome.i18n.getMessage("alert_no_destination"));
         return;
       }
       mixer.destination = { id: dest.attr("value") };
@@ -91,6 +108,19 @@
         li.append(label);
         destinationsUL.append(li);
       }
+      $("#update").attr(
+        "disabled",
+        $("#sources input:checked").length === 0 ||
+          $("#destinations input:checked").length === 0
+      );
     }
+
+    $(document).on("change", "input", () => {
+      $("#update").attr(
+        "disabled",
+        $("#sources input:checked").length === 0 ||
+          $("#destinations input:checked").length === 0
+      );
+    });
   });
 })(jQuery);

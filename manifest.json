@@ -1,14 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "Audio Pipes",
+  "name": "__MSG_appName__",
   "author": "Jan Misker",
-  "version": "0.5.4",
+  "version": "0.6.0",
+  "default_locale": "en",
   "background": {
     "scripts": ["js/background.js"]
   },
   "permissions": [],
   "browser_action": {
-    "default_title": "Audio Pipes",
+    "default_title": "__MSG_appName__",
     "default_popup": "popup.html"
   },
   "content_scripts": [

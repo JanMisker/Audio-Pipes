@@ -1,0 +1,20 @@
+{
+  "appName": {
+    "message": "Audio Pipes"
+  },
+  "button_apply": {
+    "message": "Apply"
+  },
+  "title_sources": {
+    "message": "Sources"
+  },
+  "title_destinations": {
+    "message": "Destinations"
+  },
+  "alert_no_source": {
+    "message": "Choose a source"
+  },
+  "alert_no_destination": {
+    "message": "Choose a destination"
+  }
+}

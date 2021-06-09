@@ -23,9 +23,17 @@ var mixer = {
   sources: new Map(),
 };
 
+const activePopups = new Map();
 handleNewPopupConnection = function (port) {
   port.onMessage.addListener(receivePopupMessage);
+  port.onDisconnect.addListener(() => {
+    activePopups.delete(port.id);
+  });
+  activePopups.set(port.id, port);
+  sendNodesToPopup(port);
+};
 
+const sendNodesToPopup = function (port) {
   // send it all possible sources
   var sourceTitles = [];
   var destinationTitles = [];
@@ -53,7 +61,13 @@ handleNewPopupConnection = function (port) {
   });
 };
 
-handleNewFrameConnection_ = function (port) {
+const sendNodesToActivePopups = () => {
+  activePopups.forEach((port) => {
+    sendNodesToPopup(port);
+  });
+};
+
+const handleNewFrameConnection_ = function (port) {
   var tab = port.sender.tab;
   if (!tab || !tab.id) {
     // We know not what tab this connection is coming from. It is degenerate.
@@ -102,9 +116,13 @@ function receiveFrameMessage(message, port) {
 }
 
 function receivePopupMessage(message, port) {
+  console.log("receivePopupMessage", message, port);
   switch (message.type) {
     case "mixer_update":
       updateMixer(message.data);
+      break;
+    case "refresh_nodes":
+      sendNodesToPopup(port);
       break;
     case "mixer_gains":
       break;
@@ -136,6 +154,10 @@ function storeSource(msg, port) {
   var node = nodes.get(id);
   if (node) {
     node.isSource = true;
+    if (msg.title) {
+      node.title = msg.title;
+    }
+    sendNodesToActivePopups();
   }
 }
 
@@ -148,6 +170,10 @@ function storeDestination(msg, port) {
   var node = nodes.get(id);
   if (node) {
     node.isDestination = true;
+    if (msg.title) {
+      node.title = msg.title;
+    }
+    sendNodesToActivePopups();
   }
 }
 
@@ -172,6 +198,7 @@ function removePort(port) {
     }
   }
   delete nodes.delete(id);
+  sendNodesToActivePopups();
 }
 
 function resetMixer(skipId) {

@@ -1,0 +1,20 @@
+{
+  "appName": {
+    "message": "Audio Pipes"
+  },
+  "button_apply": {
+    "message": "Toepassen"
+  },
+  "title_sources": {
+    "message": "Bronnen"
+  },
+  "title_destinations": {
+    "message": "Bestemmingen"
+  },
+  "alert_no_source": {
+    "message": "Kies een bron"
+  },
+  "alert_no_destination": {
+    "message": "Kies een bestemming"
+  }
+}
