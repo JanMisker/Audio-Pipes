@@ -3,15 +3,15 @@
   "version": "0.6.0",
   "description": "Chrome extension to redirect WebAudio between webpages.",
   "scripts": {
-    "dist": "zip Archive.zip popup.html manifest.json _locales images js"
+    "dist": "zip -r Archive.zip popup.html manifest.json _locales images js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JanMisker/Audio-Pipes.git"
+    "url": "git+https://github.com/Watch-That-Sound/Audio-Pipes.git"
   },
   "author": "Jan Misker",
   "bugs": {
-    "url": "https://github.com/JanMisker/Audio-Pipes/issues"
+    "url": "https://github.com/Watch-That-Sound/Audio-Pipes/issues"
   },
-  "homepage": "https://github.com/JanMisker/Audio-Pipes#readme"
+  "homepage": "https://github.com/Watch-That-Sound/Audio-Pipes#readme"
 }
